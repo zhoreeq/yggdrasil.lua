@@ -16,6 +16,7 @@ function control:request(command, args)
 	if c:send(data) == nil then return nil end
 
 	local resp = c:receive("*a")
+	c:close()
 	return json.decode(resp)
 end
 
